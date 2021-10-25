@@ -6,6 +6,10 @@ Choose to sacrifice abilities (dash, double jump, health) to gain attack power.
 
 Castle of Cth??????
 
+## Credits
+
+- Fonts by devurandom: https://opengameart.org/content/new-original-grafx2-font-collection
+
 ## TODO
 
 - Character
@@ -29,10 +33,12 @@ Castle of Cth??????
 	- zombie?- walk towards player
 	- shooter- shoot towards player
 - Altar dialog
+	- disable attack
+	- attack button to skip reveal/continue
+	- jump up to touch sacrifice zone, or just walk under it to ignore
 - Levels
 	- Level 1: all abilities, minor combat
 	- Altar 1: choice to sacrifice dash
-		- jump up to touch sacrifice zone, or just walk under it
 	- Level 2: dash or no, more combat
 	- Altar 2: choice to sacrifice double jump
 	- Level 3: dash or no, double jump or no, lots of combat
