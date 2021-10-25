@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6311582435455102422}
   - component: {fileID: 1224655538279616733}
   - component: {fileID: 4365934258713016456}
+  - component: {fileID: 6968240672213199400}
   m_Layer: 0
   m_Name: skeleton
   m_TagString: Damage
@@ -127,10 +128,10 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &4365934258713016456
@@ -145,4 +146,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a112af16eeb6ce34f855be195b900870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hits: 1
+  hits: 2
+--- !u!68 &6968240672213199400
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6311582435455102426}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.25, y: -0.5}
+  - {x: 0.25, y: -0.5}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

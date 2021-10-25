@@ -10,7 +10,7 @@ Castle of Cth??????
 
 - Character
 	- Attack
-		- attacking spikes shouldn't hurt player
+		- attacking damage sources shouldn't hurt player
 		- power & knockback depends on sacrifices
 	- Health
 		- Player has 3 hearts, lose one for contacting enemy/spikes
@@ -23,7 +23,7 @@ Castle of Cth??????
 	- follow player on X axis only
 	- screen shake
 - Enemies
-	- hurt by attacks, knockback, iframes
+	- knockback on attacked
 	- skeleton- walk back and forth, turn around at edge of platform
 	- flying eye- fly towards player
 	- zombie?- walk towards player
