@@ -2,21 +2,37 @@
 
 For Spooktober Jam 2021: https://itch.io/jam/spooktober-jam-2021
 
-Option to sacrifice abilities (dash, double jump, health) to gain attack power
+Choose to sacrifice abilities (dash, double jump, health) to gain attack power.
+
+Castle of Cth??????
 
 ## TODO
 
 - Character
-	- Double jump
-	- Dash
 	- Attack
+		- attacking spikes shouldn't hurt player
+		- power & knockback depends on sacrifices
 	- Health
 		- Player has 3 hearts, lose one for contacting enemy/spikes
 		- Lose all hearts- respawn at checkpoint
+	- disable abilities based on sacrifices
+- Controller
+	- persistent
+	- keep track of sacrifices
+- Camera
+	- follow player on X axis only
+	- screen shake
 - Enemies
+	- hurt by attacks, knockback, iframes
+	- skeleton- walk back and forth, turn around at edge of platform
+	- flying eye- fly towards player
+	- zombie?- walk towards player
+	- shooter- shoot towards player
+- Altar dialog
 - Levels
 	- Level 1: all abilities, minor combat
 	- Altar 1: choice to sacrifice dash
+		- jump up to touch sacrifice zone, or just walk under it
 	- Level 2: dash or no, more combat
 	- Altar 2: choice to sacrifice double jump
 	- Level 3: dash or no, double jump or no, lots of combat
@@ -34,6 +50,11 @@ Option to sacrifice abilities (dash, double jump, health) to gain attack power
 	- Altar
 - Sound
 	- Music
+		- Title
+		- Level(s?)
+		- Altar room
+		- Boss
+		- End?
 	- Player
 		- Jump
 		- Double jump
