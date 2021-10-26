@@ -25,9 +25,8 @@ public class Player : MonoBehaviour
     private const float dashTime = 0.25f;
     private const float groundForceFriction = 0.9f;
     private const float hurtInvincibleTime = 1.0f;
-    private const int maxHurtFlickerFrames = 15;
+    private const int maxHurtFlickerFrames = 5;
     private const float pitchVariation = 0.15f;
-    private const float attackDistance = 0.5f;
 
     private Rigidbody2D rb;
     private EdgeCollider2D ec;

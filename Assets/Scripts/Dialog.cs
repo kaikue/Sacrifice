@@ -5,18 +5,28 @@ using UnityEngine;
 
 public class Dialog : MonoBehaviour
 {
-    private const float charWaitTime = 0.05f;
+    [System.Serializable]
+    public class DialogLine
+	{
+        public string text;
+        public float charWaitTime = 0.05f;
+        public TMP_FontAsset font;
+        public float fontSize = 36;
+    }
+
     private int currentLine = 0;
     private int posInLine = 0;
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI textObj;
     private bool progressing = true;
     private float charWaitTimer = 0;
 
-    public string[] lines;
+    public DialogLine[] dialogLines;
 
     private void Awake()
     {
-        text.text = "";
+        textObj.text = "";
+        textObj.font = dialogLines[0].font;
+        textObj.fontSize = dialogLines[0].fontSize;
     }
 
     private void Update()
@@ -25,7 +35,7 @@ public class Dialog : MonoBehaviour
 		{
             if (progressing)
 			{
-                posInLine = lines[currentLine].Length;
+                posInLine = dialogLines[currentLine].text.Length;
                 UpdateText();
 			}
             else
@@ -38,7 +48,7 @@ public class Dialog : MonoBehaviour
         if (progressing)
         {
             charWaitTimer += Time.deltaTime;
-            if (charWaitTimer >= charWaitTime)
+            if (charWaitTimer >= dialogLines[currentLine].charWaitTime)
 			{
                 charWaitTimer = 0;
                 posInLine++;
@@ -49,25 +59,27 @@ public class Dialog : MonoBehaviour
 
     private void UpdateText()
 	{
-        if (posInLine >= lines[currentLine].Length)
+        string currentText = dialogLines[currentLine].text;
+        if (posInLine >= currentText.Length)
         {
-            posInLine = lines[currentLine].Length;
+            posInLine = currentText.Length;
             progressing = false;
         }
-        string shownText = lines[currentLine].Substring(0, posInLine);
-        string hiddenText = lines[currentLine].Substring(posInLine, lines[currentLine].Length - posInLine);
-        text.text = shownText + "<color=black>" + hiddenText + "</color>";
+        string shownText = currentText.Substring(0, posInLine);
+        string hiddenText = currentText.Substring(posInLine, currentText.Length - posInLine);
+        textObj.text = shownText + "<color=black>" + hiddenText + "</color>";
     }
 
     private void AdvanceText()
     {
         charWaitTimer = 0;
         currentLine++;
-        if (currentLine >= lines.Length)
+        if (currentLine >= dialogLines.Length)
 		{
             Destroy(gameObject);
             return;
 		}
+        textObj.font = dialogLines[currentLine].font;
         posInLine = 0;
         progressing = true;
         UpdateText();
