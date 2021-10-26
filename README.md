@@ -8,6 +8,7 @@ Castle of Cth??????
 
 ## Credits
 
+- Some art by Kenney: https://opengameart.org/content/1-bit-platformer-pack
 - Fonts by devurandom: https://opengameart.org/content/new-original-grafx2-font-collection
 
 ## TODO
@@ -28,13 +29,19 @@ Castle of Cth??????
 	- screen shake
 - Enemies
 	- knockback on attacked
-	- skeleton- walk back and forth, turn around at edge of platform
-	- flying eye- fly towards player
-	- zombie?- walk towards player
-	- shooter- shoot towards player
+	- behaviors
+		- skeleton- walk back and forth, turn around at edge of platform
+		- flying eye- fly towards player
+		- imp- walk towards player
+		- demon- run towards player
+		- ?- shoot towards player?
+- Collectible gems
+	- show how many you got
 - Altar dialog
 	- disable attack
-	- attack button to skip reveal/continue
+	- fonts
+	- write it
+		- dependent on choices
 	- jump up to touch sacrifice zone, or just walk under it to ignore
 - Levels
 	- Level 1: all abilities, minor combat
@@ -51,8 +58,12 @@ Castle of Cth??????
 			- some abilities sacrificed- fight him- banish him but you die (ok ending)
 - Art
 	- Player
+		- Attack
 	- Levels
+		- Decorations
+			- Window
 	- Enemies
+		- fix eye, skeleton head
 	- Altar
 - Sound
 	- Music

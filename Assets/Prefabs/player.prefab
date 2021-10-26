@@ -200,7 +200,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 147945b44b696db4abc3e29037929cb7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ea998f80cef40242899082cfc3f8c98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -270,15 +270,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facingLeft: 0
-  standSprite: {fileID: 21300000, guid: 147945b44b696db4abc3e29037929cb7, type: 3}
-  jumpSprite: {fileID: 21300000, guid: 147945b44b696db4abc3e29037929cb7, type: 3}
-  doubleJumpSprite: {fileID: 21300000, guid: 147945b44b696db4abc3e29037929cb7, type: 3}
-  fallSprite: {fileID: 21300000, guid: 147945b44b696db4abc3e29037929cb7, type: 3}
+  standSprite: {fileID: 21300000, guid: 3ea998f80cef40242899082cfc3f8c98, type: 3}
+  jumpSprite: {fileID: 21300000, guid: f00f43e28ced78a499c87519a5903a0c, type: 3}
+  doubleJumpSprite: {fileID: 21300000, guid: f00f43e28ced78a499c87519a5903a0c, type: 3}
+  fallSprite: {fileID: 21300000, guid: 20e5c3ea8c4771e40b638799bd0de9b5, type: 3}
   attackSprite: {fileID: 21300000, guid: 147945b44b696db4abc3e29037929cb7, type: 3}
-  dashSprite: {fileID: 21300000, guid: 147945b44b696db4abc3e29037929cb7, type: 3}
+  dashSprite: {fileID: 21300000, guid: 069417e4b168bd545afb607a65551ff9, type: 3}
   runSprites:
-  - {fileID: 21300000, guid: 147945b44b696db4abc3e29037929cb7, type: 3}
-  - {fileID: 21300000, guid: 147945b44b696db4abc3e29037929cb7, type: 3}
+  - {fileID: 21300000, guid: 3ea998f80cef40242899082cfc3f8c98, type: 3}
+  - {fileID: 21300000, guid: 7b8356e278c669e4ebd0240597f8b92f, type: 3}
+  - {fileID: 21300000, guid: 3ea998f80cef40242899082cfc3f8c98, type: 3}
+  - {fileID: 21300000, guid: 5ddf042bd361c6d4f9e2d1305a213562, type: 3}
   jumpSound: {fileID: 0}
   doubleJumpSound: {fileID: 0}
   landSound: {fileID: 0}
