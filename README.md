@@ -8,11 +8,15 @@ Castle of Cth??????
 
 ## Credits
 
-- Some art by Kenney: https://opengameart.org/content/1-bit-platformer-pack
-- "Approaching the Tower" composed, mixed and mastered by Viktor Kraus: https://opengameart.org/content/approaching-the-tower
-- "Dark Reign" by Shype: https://opengameart.org/content/dark-reign-chiptune-stage-music
-- "Underground Storm" by axtoncrolley: https://opengameart.org/content/underground-storm-chiptune8-bit-influence
-
+- Art:
+	- 1-Bit Platformer Pack Some art by Kenney: https://opengameart.org/content/1-bit-platformer-pack
+	- Haunted Graveyard Tileset by tamashihoshi: https://opengameart.org/content/haunted-graveyard-tileset
+- Music:
+	- "Approaching the Tower" composed, mixed and mastered by Viktor Kraus: https://opengameart.org/content/approaching-the-tower
+	- "Dark Reign" by Shype: https://opengameart.org/content/dark-reign-chiptune-stage-music
+	- "Encounter" by shiru8bit: https://opengameart.org/content/8-bit-chiptune-encounter
+	- "Boss Fight" by SubspaceAudio: https://opengameart.org/content/4-chiptunes-adventure
+	- "Underground Storm" by axtoncrolley: https://opengameart.org/content/underground-storm-chiptune8-bit-influence
 - Fonts:
 	- PixelMix by Andrew Tyler: https://www.dafont.com/pixelmix.font
 	- Alagard by Hewett Tsoi: https://www.dafont.com/alagard.font
@@ -24,39 +28,29 @@ Castle of Cth??????
 
 - Character
 	- Attack
-		- attacking damage sources shouldn't hurt player
 		- power & knockback depends on sacrifices
 	- Health
-		- Player has 3 hearts, lose one for contacting enemy/spikes
-		- Lose all hearts- respawn at checkpoint
-	- disable abilities based on sacrifices
-- Controller
-	- persistent
-	- keep track of sacrifices
+		- Dying effects, respawn at checkpoint
+			- don't reload scene cause this messes with gem counts
 - Camera
-	- follow player on X axis only
-	- screen shake
+	- stop at level transitions
 - Enemies
 	- knockback on attacked
+	- destroy effects
+		- particles
+		- drop hearts sometimes
 	- behaviors
-		- skeleton- walk back and forth, turn around at edge of platform
-		- flying eye- fly towards player
-		- imp- walk towards player
-		- demon- run towards player
+		- skeleton- turn around at edge of platform
 		- ?- shoot towards player?
-- Collectible gems
-	- blink
-	- show how many you got
-- Collectible hearts
-	- blink
-	- drop from enemies
-	- heal you
+- Attackable walls?
+	- need to break to leave altar (to test attack)
 - Altar dialog
 	- disable attack
-	- fonts
 	- write it
 		- dependent on choices
 	- jump up to touch sacrifice zone, or just walk under it to ignore
+- Tutorial
+	- controls for keyboard/gamepad
 - Levels
 	- Title
 		- music: 
@@ -64,12 +58,15 @@ Castle of Cth??????
 		- music: Approaching the Tower
 	- Altar 1: choice to sacrifice dash
 		- ambient music?
+		- You feel less nimble.
 	- Level 2: dash or no, more combat
-		- music: Stage 1
+		- music: encounter
 	- Altar 2: choice to sacrifice double jump
+		- You feel heavier.
 	- Level 3: dash or no, double jump or no, lots of combat
-		- music: 
-	- Altar 3: choice to sacrifice hearts
+		- music: Juhani Junkala
+	- Altar 3: choice to sacrifice hearts "vitality"
+		- You feel more fragile.
 	- Level 4: dash or no, double jump or no, cross spikes (requires health), lots of combat
 		- music: inarticulate
 	- Altar 5: sacrifice everything for ultimate power
@@ -84,9 +81,7 @@ Castle of Cth??????
 - Art
 	- Player
 		- Attack
-	- Levels
-		- Decorations
-			- Window
+		- Hurt
 	- Enemies
 		- guy who shoots bullets
 	- Altar

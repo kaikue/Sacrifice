@@ -14,6 +14,7 @@ public class Attack : MonoBehaviour
     private IEnumerator Decay()
 	{
         yield return new WaitForSeconds(decayTime);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
 	}
 }

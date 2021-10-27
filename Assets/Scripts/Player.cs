@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
     private const float hurtInvincibleTime = 1.0f;
     private const int maxHurtFlickerFrames = 5;
     private const float pitchVariation = 0.15f;
+    private const float attackDistance = 1.0f;
 
     private Rigidbody2D rb;
     private EdgeCollider2D ec;
@@ -52,6 +54,12 @@ public class Player : MonoBehaviour
     private int hurtFlickerFrames = 0;
     private Transform checkpoint;
 
+    private CameraFollow cameraScript;
+    private Persistent persistent;
+
+    private int maxHearts = 3;
+    private int hearts;
+
     private const float runFrameTime = 0.1f;
     private SpriteRenderer sr;
     private AnimState animState = AnimState.Stand;
@@ -75,8 +83,10 @@ public class Player : MonoBehaviour
     public AudioClip attackSound;
     public AudioClip hurtSound;
     public AudioClip collectGemSound;
+    public AudioClip collectHeartSound;
 
-    public GameObject attack;
+    public GameObject attackPrefab;
+    private GameObject spawnedAttack;
 
     private void Start()
     {
@@ -84,6 +94,14 @@ public class Player : MonoBehaviour
         ec = gameObject.GetComponent<EdgeCollider2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         audioSource = gameObject.GetComponent<AudioSource>();
+        cameraScript = FindObjectOfType<CameraFollow>();
+        persistent = FindObjectOfType<Persistent>();
+
+        if (persistent.sacrificedHearts)
+		{
+            maxHearts = 1;
+		}
+        hearts = maxHearts;
     }
 
     private void Update()
@@ -285,7 +303,7 @@ public class Player : MonoBehaviour
                 PlaySound(jumpSound);
                 animState = AnimState.Jump;
             }
-            else if (canDoubleJump)
+            else if (canDoubleJump && !persistent.sacrificedDoubleJump)
             {
                 StopCancelQueuedJump();
                 jumpQueued = false;
@@ -301,7 +319,7 @@ public class Player : MonoBehaviour
         if (dashQueued)
         {
             dashQueued = false;
-            if (canDash)
+            if (canDash && !persistent.sacrificedDash)
             {
                 canDash = false;
                 dashCountdown = dashTime;
@@ -346,17 +364,24 @@ public class Player : MonoBehaviour
             Attack();
 		}
         attackQueued = false;
+        if (spawnedAttack != null)
+		{
+            Vector3 attackPos = transform.position + (attackDistance * (facingLeft ? Vector3.left : Vector3.right));
+            spawnedAttack.transform.position = attackPos;
+            spawnedAttack.transform.localScale = new Vector3(facingLeft ? -1 : 1, 1, 1);
+        }
     }
 
     private void Attack()
 	{
         PlaySound(attackSound);
-        attack.SetActive(true);
-        attack.GetComponent<Attack>().Activate();
-        attack.transform.localPosition = new Vector3(facingLeft ? -1 : 1, 0, 0);
-        attack.transform.localScale = new Vector3(facingLeft ? -1 : 1, 1, 1);
-        //Vector3 attackPos = transform.position + (attackDistance * (facingLeft ? Vector3.left : Vector3.right));
-        //GameObject attack = Instantiate(attackPrefab, attackPos, Quaternion.identity);
+        //attack.SetActive(true);
+        //attack.transform.localPosition = new Vector3(facingLeft ? -1 : 1, 0, 0);
+        //attack.transform.localScale = new Vector3(facingLeft ? -1 : 1, 1, 1);
+        Vector3 attackPos = transform.position + (attackDistance * (facingLeft ? Vector3.left : Vector3.right));
+        spawnedAttack = Instantiate(attackPrefab, attackPos, Quaternion.identity);
+        spawnedAttack.transform.localScale = new Vector3(facingLeft ? -1 : 1, 1, 1);
+        spawnedAttack.GetComponent<Attack>().Activate();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -383,6 +408,22 @@ public class Player : MonoBehaviour
         if (!gameObject.activeSelf) return;
 
         GameObject collider = collision.gameObject;
+
+        Gem gem = collider.GetComponent<Gem>();
+        if (gem != null)
+		{
+            Destroy(collider);
+            PlaySound(collectGemSound);
+            persistent.gems++;
+		}
+
+        Heart heart = collider.GetComponent<Heart>();
+        if (heart != null)
+        {
+            Destroy(collider);
+            PlaySound(collectHeartSound);
+            hearts = Mathf.Min(hearts + 1, maxHearts);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -401,10 +442,19 @@ public class Player : MonoBehaviour
     }
 
     private void Damage()
-	{
-        hurtInvincible = true;
-        hurtInvincibleTimer = 0;
-        hurtFlickerFrames = 0;
+    {
+        hearts--;
+        if (hearts <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //TODO death effect
+        }
+        else
+        {
+            hurtInvincible = true;
+            hurtInvincibleTimer = 0;
+            hurtFlickerFrames = 0;
+            cameraScript.Shake();
+        }
     }
 
     private Sprite GetAnimSprite()
@@ -483,11 +533,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void ScreenShake()
-    {
-        //TODO
-    }
-
     public void PlaySound(AudioClip sound, bool randomizePitch = true)
     {
         if (randomizePitch)
@@ -500,4 +545,9 @@ public class Player : MonoBehaviour
         }
         audioSource.PlayOneShot(sound);
     }
+
+    public int GetHearts()
+	{
+        return hearts;
+	}
 }

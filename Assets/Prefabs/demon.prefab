@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facingLeft: 0
-  speed: 3
+  speed: 4
 --- !u!1001 &2933187459688200465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21,14 +21,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4365934258713016456, guid: 53d1d1c6fa3cf394fb69604fbac79d9b, type: 3}
+      propertyPath: hits
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4509749265469220884, guid: 53d1d1c6fa3cf394fb69604fbac79d9b, type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: dc63c7251741b3d4191fa58c7a3796b1, type: 3}
+      objectReference: {fileID: 21300000, guid: b07de43af24d1194aa6b11acfd54c70c, type: 3}
     - target: {fileID: 4509749265469220884, guid: 53d1d1c6fa3cf394fb69604fbac79d9b, type: 3}
       propertyPath: sprites.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: dcb68c51eeb87584cb92142bc325176a, type: 3}
+      objectReference: {fileID: 21300000, guid: 67934b9a41a3cbf46801ec0ae046100b, type: 3}
     - target: {fileID: 6311582435455102420, guid: 53d1d1c6fa3cf394fb69604fbac79d9b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -75,12 +79,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6311582435455102426, guid: 53d1d1c6fa3cf394fb69604fbac79d9b, type: 3}
       propertyPath: m_Name
-      value: imp
+      value: demon
       objectReference: {fileID: 0}
     - target: {fileID: 6311582435455102427, guid: 53d1d1c6fa3cf394fb69604fbac79d9b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: dc63c7251741b3d4191fa58c7a3796b1, type: 3}
+      objectReference: {fileID: 21300000, guid: b07de43af24d1194aa6b11acfd54c70c, type: 3}
     m_RemovedComponents:
     - {fileID: 1963784636764141379, guid: 53d1d1c6fa3cf394fb69604fbac79d9b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 53d1d1c6fa3cf394fb69604fbac79d9b, type: 3}

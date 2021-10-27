@@ -42,3 +42,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Tiles
+    uniqueID: 1453387381
+    locked: 0
+  - name: Decorations
+    uniqueID: 3748756471
+    locked: 0
+  - name: Enemies
+    uniqueID: 3625113425
+    locked: 0
+  - name: Collectibles
+    uniqueID: 813142031
+    locked: 0
+  - name: Player
+    uniqueID: 2877304781
+    locked: 0
+  - name: Spikes
+    uniqueID: 3788501821
+    locked: 0
+  - name: UI
+    uniqueID: 2573052173
+    locked: 0
