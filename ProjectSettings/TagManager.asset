@@ -50,6 +50,9 @@ TagManager:
   - name: Decorations
     uniqueID: 3748756471
     locked: 0
+  - name: Spikes
+    uniqueID: 3788501821
+    locked: 0
   - name: Enemies
     uniqueID: 3625113425
     locked: 0
@@ -58,9 +61,6 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2877304781
-    locked: 0
-  - name: Spikes
-    uniqueID: 3788501821
     locked: 0
   - name: Effects
     uniqueID: 3031501711

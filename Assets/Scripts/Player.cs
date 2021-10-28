@@ -90,6 +90,10 @@ public class Player : MonoBehaviour
 
     public GameObject collectParticlePrefab;
     public GameObject hurtParticlePrefab;
+    public GameObject playerKilledPrefab;
+
+    [HideInInspector]
+    public int levelGems = 0;
 
     private void Start()
     {
@@ -98,7 +102,16 @@ public class Player : MonoBehaviour
         sr = gameObject.GetComponent<SpriteRenderer>();
         audioSource = gameObject.GetComponent<AudioSource>();
         cameraScript = FindObjectOfType<CameraFollow>();
-        persistent = FindObjectOfType<Persistent>();
+
+        Persistent[] persistents = FindObjectsOfType<Persistent>();
+        foreach (Persistent p in persistents)
+        {
+            if (!p.destroying)
+            {
+                persistent = p;
+                break;
+            }
+        }
 
         if (persistent.sacrificedHearts)
 		{
@@ -395,7 +408,9 @@ public class Player : MonoBehaviour
 
         if (collider.CompareTag("BarrierRight"))
 		{
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //TODO level transition effect
+            persistent.gems += levelGems;
+            levelGems = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         if (collider.layer == LayerMask.NameToLayer("Tiles"))
@@ -423,7 +438,7 @@ public class Player : MonoBehaviour
             Destroy(collider);
             PlaySound(collectGemSound);
             Instantiate(collectParticlePrefab, collider.transform.position, Quaternion.identity);
-            persistent.gems++;
+            levelGems++;
 		}
 
         Heart heart = collider.GetComponent<Heart>();
@@ -434,6 +449,12 @@ public class Player : MonoBehaviour
             Instantiate(collectParticlePrefab, collider.transform.position, Quaternion.identity);
             hearts = Mathf.Min(hearts + 1, maxHearts);
         }
+
+        ChoiceOrb choiceOrb = collider.GetComponent<ChoiceOrb>();
+        if (choiceOrb != null)
+		{
+            choiceOrb.Activate();
+		}
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -454,17 +475,22 @@ public class Player : MonoBehaviour
     private void Damage()
     {
         hearts--;
+        cameraScript.Shake();
         Instantiate(hurtParticlePrefab, transform.position, Quaternion.identity);
         if (hearts <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //TODO death effect
+            GameObject playerKilled = Instantiate(playerKilledPrefab, transform.position, Quaternion.identity);
+            if (facingLeft)
+			{
+                playerKilled.GetComponent<SpriteRenderer>().flipX = true;
+			}
+            gameObject.SetActive(false);
         }
         else
         {
             hurtInvincible = true;
             hurtInvincibleTimer = 0;
             hurtFlickerFrames = 0;
-            cameraScript.Shake();
         }
     }
 

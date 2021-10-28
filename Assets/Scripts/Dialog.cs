@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Dialog : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Dialog : MonoBehaviour
         public float charWaitTime = 0.05f;
         public TMP_FontAsset font;
         public float fontSize = 36;
+        public UnityEvent lineEvent;
     }
 
     private int currentLine = 0;
@@ -79,7 +81,9 @@ public class Dialog : MonoBehaviour
             Destroy(gameObject);
             return;
 		}
+        dialogLines[currentLine].lineEvent.Invoke();
         textObj.font = dialogLines[currentLine].font;
+        textObj.fontSize = dialogLines[currentLine].fontSize;
         posInLine = 0;
         progressing = true;
         UpdateText();

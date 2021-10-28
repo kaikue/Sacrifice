@@ -199,6 +199,7 @@ MonoBehaviour:
   heart1: {fileID: 1508288537277196906}
   heart2: {fileID: 1508288535515639968}
   heart3: {fileID: 1508288535656087762}
+  gemImage: {fileID: 1508288536401509514}
   gemText: {fileID: 1508288536364346995}
 --- !u!1 &1508288536025430571
 GameObject:

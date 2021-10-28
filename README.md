@@ -11,6 +11,7 @@ Castle of Cth??????
 - Art:
 	- 1-Bit Platformer Pack Some art by Kenney: https://opengameart.org/content/1-bit-platformer-pack
 	- Haunted Graveyard Tileset by tamashihoshi: https://opengameart.org/content/haunted-graveyard-tileset
+	- Electrical Disintegration Animation by superjoe: https://opengameart.org/content/electrical-disintegration-animation
 - Music:
 	- "Approaching the Tower" composed, mixed and mastered by Viktor Kraus: https://opengameart.org/content/approaching-the-tower
 	- "Dark Reign" by Shype: https://opengameart.org/content/dark-reign-chiptune-stage-music
@@ -26,30 +27,53 @@ Castle of Cth??????
 
 ## TODO
 
-- Character
-	- Attack
-		- power & knockback depends on sacrifices
-			- test
-		- animation
-		- different sounds for higher level attacks?
-		- bigger AoE at higher levels?
-	- Health
-		- Dying effects, reload scene
-		- Reset gem count to what it was at start of scene
-		- multiple scenes per level to act as checkpoints- persistent music?
-- Level transition effects
-- Enemies
-	- one that shoots towards player?
-- Attackable walls
-	- need to break to leave altar (to test attack)
-	- take multiple hits- can't just run past enemies since they'll get you from behind
-- Altar dialog
-	- show button prompt in corner
+- Attack
+	- animation (player & attack)
+	- power & knockback depends on sacrifices
+		- test
+	- different sounds for higher level attacks?
+	- bigger AoE at higher levels?
+- Sound
+	- Music
+		- Title
+		- Altar room
+		- Boss
+		- Endings?
+	- Player
+		- Jump
+		- Double jump
+		- Dash
+		- Land
+		- Attack
+		- Hurt
+		- Die (in killed prefab)
+	- Enemies
+		- Hurt
+		- Die
+- Level design
+	- Multiple scenes per level to act as checkpoints
+	- Short ceilings so you can't jump over enemies
+	- Attackable walls take multiple hits- can't just run past enemies since they'll get you from behind
+	- Dash over spikes
+	- 4 flying eyes room
+	- Introduce demon as miniboss first
+	- Opportunities to use saved abilities to skip enemy fights
+	- Decorations- occasional eyes
+- Altar
+	- wiggling tentacles on ceiling
+	- more activate effects
+		- screen flash
+		- particles
+		- sound
+	- show button prompt in dialog corner
 	- write it
 		- dependent on choices
-	- jump up to touch sacrifice zone, or just walk under it to ignore
 - Tutorial
 	- controls for keyboard/gamepad
+- Enemies
+	- faster+tougher flying eye?
+	- one that shoots towards player?
+	- big shambler? (can't jump over)
 - Levels
 	- Title
 		- music: 
@@ -57,16 +81,13 @@ Castle of Cth??????
 		- music: Approaching the Tower
 	- Altar 1: choice to sacrifice dash
 		- ambient music?
-		- You feel less nimble.
 	- Level 2: dash or no, more combat
 		- music: encounter
 	- Altar 2: choice to sacrifice double jump
-		- You feel heavier.
 	- Level 3: dash or no, double jump or no, lots of combat
 		- music: Juhani Junkala
 	- Altar 3: choice to sacrifice hearts "vitality"
-		- reload hearts GUI
-		- You feel more fragile.
+		- reload hearts GUI (test)
 	- Level 4: dash or no, double jump or no, cross spikes (requires health), lots of combat
 		- music: inarticulate
 	- Altar 5: sacrifice everything for ultimate power
@@ -78,28 +99,3 @@ Castle of Cth??????
 			- spawn enemies
 			- no abilities sacrificed- climb up through spikes and banish him- good ending
 			- some abilities sacrificed- fight him- banish him but you die (ok ending)
-- Art
-	- Player
-		- Attack
-		- Hurt
-	- Enemies
-		- guy who shoots bullets
-	- Altar
-- Sound
-	- Music
-		- Title
-		- Level(s?)
-		- Altar room
-		- Boss
-		- End?
-	- Player
-		- Jump
-		- Double jump
-		- Dash
-		- Land
-		- Attack
-		- Hurt
-		- Die
-	- Enemies
-		- Hurt
-		- Die

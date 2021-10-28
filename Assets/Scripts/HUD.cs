@@ -12,6 +12,7 @@ public class HUD : MonoBehaviour
     public Image heart1;
     public Image heart2;
     public Image heart3;
+    public Image gemImage;
     public TextMeshProUGUI gemText;
 
     private Persistent persistent;
@@ -19,14 +20,19 @@ public class HUD : MonoBehaviour
 
     private void Start()
     {
-        persistent = FindObjectOfType<Persistent>();
+        Persistent[] persistents = FindObjectsOfType<Persistent>();
+        foreach (Persistent p in persistents)
+        {
+            if (!p.destroying)
+            {
+                persistent = p;
+                break;
+            }
+        }
+
         player = FindObjectOfType<Player>();
 
-        if (persistent.sacrificedHearts)
-		{
-            heart2.enabled = false;
-            heart3.enabled = false;
-		}
+        RefreshHearts();
     }
 
     private void Update()
@@ -35,7 +41,18 @@ public class HUD : MonoBehaviour
         heart2.sprite = GetHeartSprite(2);
         heart3.sprite = GetHeartSprite(3);
 
-        gemText.text = persistent.gems.ToString();
+        int gems = persistent.GetTotalGems();
+        if (gems == 0)
+        {
+            gemImage.gameObject.SetActive(false);
+            gemText.gameObject.SetActive(false);
+        }
+        else
+        {
+            gemImage.gameObject.SetActive(true);
+            gemText.gameObject.SetActive(true);
+            gemText.text = gems.ToString();
+        }
     }
 
     private Sprite GetHeartSprite(int heart)
@@ -43,4 +60,13 @@ public class HUD : MonoBehaviour
         int hearts = player.GetHearts();
         return hearts >= heart ? heartFilledSprite : heartEmptySprite;
 	}
+
+    public void RefreshHearts()
+	{
+        if (persistent.sacrificedHearts)
+        {
+            heart2.enabled = false;
+            heart3.enabled = false;
+        }
+    }
 }
