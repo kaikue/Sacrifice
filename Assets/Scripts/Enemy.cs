@@ -8,14 +8,18 @@ public class Enemy : MonoBehaviour
 
     private bool hurtInvincible = false;
     private float hurtInvincibleTimer;
-    private int health;
+    protected int health;
 
     private AIMovement ai;
 
     public int hits;
     public float knockbackResist = 1;
+    public float heartDropChance = 0.3f;
+    public GameObject heartPrefab;
+    public GameObject killParticlePrefab;
+    public GameObject hurtParticlePrefab;
 
-    private void Start()
+    protected virtual void Start()
     {
         health = hits;
         ai = GetComponent<AIMovement>();
@@ -49,10 +53,15 @@ public class Enemy : MonoBehaviour
 
 	private void Damage(int hearts, float knockback)
 	{
-        //TODO effects
         health -= hearts;
         if (health <= 0)
 		{
+            Player player = FindObjectOfType<Player>();
+            if (player.GetHearts() < player.GetMaxHearts() && Random.Range(0f, 1f) < heartDropChance)
+			{
+                Instantiate(heartPrefab, transform.position, Quaternion.identity);
+            }
+            Instantiate(killParticlePrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else
@@ -63,6 +72,7 @@ public class Enemy : MonoBehaviour
             {
                 ai.Knockback(knockback / knockbackResist);
             }
-		}
+            Instantiate(hurtParticlePrefab, transform.position, Quaternion.identity);
+        }
 	}
 }

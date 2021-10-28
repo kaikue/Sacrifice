@@ -166,6 +166,8 @@ MonoBehaviour:
   collectGemSound: {fileID: 0}
   collectHeartSound: {fileID: 0}
   attackPrefab: {fileID: 7255420480138187907, guid: 71c7cf4d8a30b814dbb81fdc87ca8fca, type: 3}
+  collectParticlePrefab: {fileID: 6732967993637338557, guid: 9372fe311087ba24393b0a777de59424, type: 3}
+  hurtParticlePrefab: {fileID: 6732967993637338557, guid: 9372fe311087ba24393b0a777de59424, type: 3}
 --- !u!82 &5701475556074167667
 AudioSource:
   m_ObjectHideFlags: 0

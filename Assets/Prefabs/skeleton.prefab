@@ -148,6 +148,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hits: 2
+  knockbackResist: 1
+  heartDropChance: 0.5
+  heartPrefab: {fileID: 3256271713347142990, guid: f26ce090f2f1b92408c54ffc8fd7e5ff, type: 3}
+  killParticlePrefab: {fileID: 2245083368674552170, guid: 3330fd90ebe068d4cbd26b8521a1f276, type: 3}
+  hurtParticlePrefab: {fileID: 6732967993637338557, guid: 9372fe311087ba24393b0a777de59424, type: 3}
 --- !u!114 &4509749265469220884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingLeft: 0
   speed: 2
+  activationDist: 20
 --- !u!61 &2459685929568858822
 BoxCollider2D:
   m_ObjectHideFlags: 0

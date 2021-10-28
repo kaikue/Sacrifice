@@ -33,6 +33,11 @@ public class CameraFollow : MonoBehaviour
 
 	private void Update()
     {
-        transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+		float edgeWidth = 1.5f;
+		float camHalfWidth = Camera.main.orthographicSize * Camera.main.aspect;
+		float leftPos = GameObject.FindGameObjectWithTag("BarrierLeft").transform.position.x + edgeWidth;
+		float rightPos = GameObject.FindGameObjectWithTag("BarrierRight").transform.position.x - edgeWidth;
+		float camX = Mathf.Clamp(player.transform.position.x, leftPos + camHalfWidth, rightPos - camHalfWidth);
+		transform.position = new Vector3(camX, transform.position.y, transform.position.z);
     }
 }

@@ -30,23 +30,21 @@ Castle of Cth??????
 	- Attack
 		- power & knockback depends on sacrifices
 			- test
-		- particles?
+		- animation
 		- different sounds for higher level attacks?
+		- bigger AoE at higher levels?
 	- Health
-		- Dying effects, respawn at checkpoint
-			- don't reload scene cause this messes with gem counts
-- Camera
-	- stop at level transitions
+		- Dying effects, reload scene
+		- Reset gem count to what it was at start of scene
+		- multiple scenes per level to act as checkpoints- persistent music?
+- Level transition effects
 - Enemies
-	- destroy effects
-		- particles
-		- drop hearts sometimes
 	- one that shoots towards player?
-- Attackable walls?
+- Attackable walls
 	- need to break to leave altar (to test attack)
-	- walls take multiple hits- can't just run past enemies since they'll get you from behind
+	- take multiple hits- can't just run past enemies since they'll get you from behind
 - Altar dialog
-	- disable attack
+	- show button prompt in corner
 	- write it
 		- dependent on choices
 	- jump up to touch sacrifice zone, or just walk under it to ignore
@@ -67,6 +65,7 @@ Castle of Cth??????
 	- Level 3: dash or no, double jump or no, lots of combat
 		- music: Juhani Junkala
 	- Altar 3: choice to sacrifice hearts "vitality"
+		- reload hearts GUI
 		- You feel more fragile.
 	- Level 4: dash or no, double jump or no, cross spikes (requires health), lots of combat
 		- music: inarticulate
@@ -99,4 +98,8 @@ Castle of Cth??????
 		- Dash
 		- Land
 		- Attack
+		- Hurt
+		- Die
 	- Enemies
+		- Hurt
+		- Die

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Damage
+  - BarrierLeft
+  - BarrierRight
   layers:
   - Default
   - TransparentFX
@@ -59,6 +61,9 @@ TagManager:
     locked: 0
   - name: Spikes
     uniqueID: 3788501821
+    locked: 0
+  - name: Effects
+    uniqueID: 3031501711
     locked: 0
   - name: UI
     uniqueID: 2573052173

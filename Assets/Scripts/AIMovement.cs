@@ -5,12 +5,12 @@ using UnityEngine;
 public class AIMovement : MonoBehaviour
 {
     protected const float minDist = 0.5f;
-    protected const float activationDist = 10;
     protected const float knockbackFloorDecay = 0.9f;
     protected const float knockbackFlyingDecay = 0.95f;
 
     public bool facingLeft;
     public float speed = 5;
+    public float activationDist = 10;
 
     protected Rigidbody2D rb;
     protected EdgeCollider2D ec;

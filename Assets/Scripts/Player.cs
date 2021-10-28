@@ -88,6 +88,9 @@ public class Player : MonoBehaviour
     public GameObject attackPrefab;
     private GameObject spawnedAttack;
 
+    public GameObject collectParticlePrefab;
+    public GameObject hurtParticlePrefab;
+
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -118,7 +121,7 @@ public class Player : MonoBehaviour
             dashQueued = true;
         }
 
-        if (Input.GetButtonDown("Attack"))
+        if (Input.GetButtonDown("Attack") && FindObjectOfType<Dialog>() == null)
         {
             attackQueued = true;
         }
@@ -390,6 +393,11 @@ public class Player : MonoBehaviour
 
         GameObject collider = collision.collider.gameObject;
 
+        if (collider.CompareTag("BarrierRight"))
+		{
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //TODO level transition effect
+        }
+
         if (collider.layer == LayerMask.NameToLayer("Tiles"))
         {
             if (collision.GetContact(0).normal.x != 0)
@@ -414,6 +422,7 @@ public class Player : MonoBehaviour
 		{
             Destroy(collider);
             PlaySound(collectGemSound);
+            Instantiate(collectParticlePrefab, collider.transform.position, Quaternion.identity);
             persistent.gems++;
 		}
 
@@ -422,6 +431,7 @@ public class Player : MonoBehaviour
         {
             Destroy(collider);
             PlaySound(collectHeartSound);
+            Instantiate(collectParticlePrefab, collider.transform.position, Quaternion.identity);
             hearts = Mathf.Min(hearts + 1, maxHearts);
         }
     }
@@ -444,6 +454,7 @@ public class Player : MonoBehaviour
     private void Damage()
     {
         hearts--;
+        Instantiate(hurtParticlePrefab, transform.position, Quaternion.identity);
         if (hearts <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //TODO death effect
@@ -549,5 +560,10 @@ public class Player : MonoBehaviour
     public int GetHearts()
 	{
         return hearts;
+	}
+
+    public int GetMaxHearts()
+	{
+        return maxHearts;
 	}
 }
