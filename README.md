@@ -29,21 +29,22 @@ Castle of Cth??????
 - Character
 	- Attack
 		- power & knockback depends on sacrifices
+			- test
+		- particles?
+		- different sounds for higher level attacks?
 	- Health
 		- Dying effects, respawn at checkpoint
 			- don't reload scene cause this messes with gem counts
 - Camera
 	- stop at level transitions
 - Enemies
-	- knockback on attacked
 	- destroy effects
 		- particles
 		- drop hearts sometimes
-	- behaviors
-		- skeleton- turn around at edge of platform
-		- ?- shoot towards player?
+	- one that shoots towards player?
 - Attackable walls?
 	- need to break to leave altar (to test attack)
+	- walls take multiple hits- can't just run past enemies since they'll get you from behind
 - Altar dialog
 	- disable attack
 	- write it

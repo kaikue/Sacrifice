@@ -381,7 +381,7 @@ public class Player : MonoBehaviour
         Vector3 attackPos = transform.position + (attackDistance * (facingLeft ? Vector3.left : Vector3.right));
         spawnedAttack = Instantiate(attackPrefab, attackPos, Quaternion.identity);
         spawnedAttack.transform.localScale = new Vector3(facingLeft ? -1 : 1, 1, 1);
-        spawnedAttack.GetComponent<Attack>().Activate();
+        spawnedAttack.GetComponent<Attack>().Activate(persistent.NumSacrifices());
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

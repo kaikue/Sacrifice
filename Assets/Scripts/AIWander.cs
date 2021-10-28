@@ -2,29 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIWander : MonoBehaviour
+public class AIWander : AIMovement
 {
-    public bool facingLeft;
-    public float speed = 5;
+    protected override void UpdateDirection()
+	{
+        if (wallLeft && facingLeft)
+		{
+            facingLeft = false;
+            return;
+		}
 
-    private Rigidbody2D rb;
-    private SpriteRenderer sr;
+        if (wallRight && !facingLeft)
+        {
+            facingLeft = true;
+            return;
+        }
 
-    void Start()
-    {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        sr = gameObject.GetComponent<SpriteRenderer>();
+        if (onGround)
+        {
+            bool leftEmpty = !CheckPoint(0, new Vector2(-1, -1));
+            if (leftEmpty && facingLeft)
+            {
+                facingLeft = false;
+                return;
+            }
+            bool rightEmpty = !CheckPoint(3, new Vector2(1, -1));
+            if (rightEmpty && !facingLeft)
+            {
+                facingLeft = true;
+                return;
+            }
+        }
     }
 
-    private void FixedUpdate()
+    protected override Vector2 GetVelocity()
     {
-        //TODO check for empty at feet, or wall at face: if so, flip direction
-        sr.flipX = facingLeft;
-
         float dir = facingLeft ? -1 : 1;
-        float xVel = speed * dir;
-        Vector2 vel = new Vector2(xVel, rb.velocity.y);
-        rb.velocity = vel;
-        //rb.MovePosition(rb.position + vel * Time.fixedDeltaTime);
+        return new Vector2(speed * dir, rb.velocity.y);
     }
 }

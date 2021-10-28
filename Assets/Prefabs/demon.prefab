@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingLeft: 0
   speed: 4
+  canJump: 1
+  jumpForce: 5
 --- !u!1001 &2933187459688200465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23,6 +25,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4365934258713016456, guid: 53d1d1c6fa3cf394fb69604fbac79d9b, type: 3}
       propertyPath: hits
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365934258713016456, guid: 53d1d1c6fa3cf394fb69604fbac79d9b, type: 3}
+      propertyPath: knockbackResist
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4509749265469220884, guid: 53d1d1c6fa3cf394fb69604fbac79d9b, type: 3}

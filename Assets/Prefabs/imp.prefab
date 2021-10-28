@@ -21,6 +21,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4365934258713016456, guid: 53d1d1c6fa3cf394fb69604fbac79d9b, type: 3}
+      propertyPath: hits
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365934258713016456, guid: 53d1d1c6fa3cf394fb69604fbac79d9b, type: 3}
+      propertyPath: knockbackResist
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4509749265469220884, guid: 53d1d1c6fa3cf394fb69604fbac79d9b, type: 3}
       propertyPath: sprites.Array.data[0]
       value: 

@@ -13,11 +13,9 @@ public class Persistent : MonoBehaviour
     public int possibleGems = 0;
     [HideInInspector]
     public float time = 0;
-    [HideInInspector]
+
     public bool sacrificedDash = false;
-    [HideInInspector]
     public bool sacrificedDoubleJump = false;
-    [HideInInspector]
     public bool sacrificedHearts = false;
 
     private void Awake()
@@ -48,5 +46,14 @@ public class Persistent : MonoBehaviour
         {
             time += Time.deltaTime;
         }
+    }
+
+    public int NumSacrifices()
+	{
+        int n = 0;
+        if (sacrificedDash) n++;
+        if (sacrificedDoubleJump) n++;
+        if (sacrificedHearts) n++;
+        return n;
     }
 }

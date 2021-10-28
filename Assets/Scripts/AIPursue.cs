@@ -2,43 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIPursue : MonoBehaviour
+public class AIPursue : AIMovement
 {
-    private const float minXDist = 0.5f;
-    private const float activationDist = 10;
+    public bool canJump = false;
+    public float jumpForce = 8;
 
-    public bool facingLeft;
-    public float speed = 5;
-
-    private Rigidbody2D rb;
-    private SpriteRenderer sr;
-    private GameObject player;
-
-    void Start()
+    protected override Vector2 GetVelocity()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        sr = gameObject.GetComponent<SpriteRenderer>();
-        player = FindObjectOfType<Player>().gameObject;
-    }
-
-    private void FixedUpdate()
-    {
-        float xDiff = Mathf.Abs(player.transform.position.x - rb.position.x);
-        float xVel = 0;
-        if (xDiff <= activationDist)
-		{
-            if (xDiff > minXDist)
-            {
-                facingLeft = player.transform.position.x < rb.position.x;
-            }
-            sr.flipX = facingLeft;
-
-            float dir = facingLeft ? -1 : 1;
-            xVel = speed * dir;
-        }
-        
-        Vector2 vel = new Vector2(xVel, rb.velocity.y);
-        rb.velocity = vel;
-        //rb.MovePosition(rb.position + vel * Time.fixedDeltaTime);
+        float dir = facingLeft ? -1 : 1;
+        float yVel = rb.velocity.y;
+        if (canJump && onGround && ((wallLeft && facingLeft) || (wallRight && !facingLeft)))
+        {
+            yVel = jumpForce;
+		}
+        return new Vector2(speed * dir, yVel);
     }
 }
