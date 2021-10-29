@@ -30,6 +30,7 @@ public class ChoiceOrb : MonoBehaviour
 		}
         Instantiate(activateEffectPrefab, transform.position, Quaternion.identity);
         Instantiate(activateDialog, transform.position, Quaternion.identity);
+        FindObjectOfType<CameraShake>().Shake(3);
         Destroy(gameObject);
 	}
 }

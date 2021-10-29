@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[0].text
-      value: I knew you were something special...
+      value: I knew you were something special.
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[1].font

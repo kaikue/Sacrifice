@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: f3794cd8a987f1b438e9cb9b59854b2c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - castleDestroyed1: {instanceID: 0}
+  - castleDestroyed2: {instanceID: 0}
+  - tentacleBurstSound: {instanceID: 0}
+  - tentaclePrefab: {instanceID: 0}
+  - tentaclePoint1: {instanceID: 0}
+  - tentaclePoint2: {instanceID: 0}
+  - tentaclePoint3: {instanceID: 0}
+  - tentaclePoint4: {instanceID: 0}
+  - endObj: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

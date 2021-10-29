@@ -95,7 +95,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8748194401014946561}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: cceeb8ed57b8735449014f98a09ab95a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -127,9 +127,12 @@ MonoBehaviour:
   hits: 2
   knockbackResist: 1
   heartDropChance: 0
+  hurtSound: {fileID: 8300000, guid: bcd234299d37f014484c6931fc121a4e, type: 3}
+  killSound: {fileID: 8300000, guid: 7b67c235baf6d0740b5aa2556c7cd6e5, type: 3}
   heartPrefab: {fileID: 0}
   killParticlePrefab: {fileID: 2245083368674552170, guid: 3330fd90ebe068d4cbd26b8521a1f276, type: 3}
   hurtParticlePrefab: {fileID: 6732967993637338557, guid: 9372fe311087ba24393b0a777de59424, type: 3}
+  soundEffectPrefab: {fileID: 5301649110270854516, guid: a597f4d660ad6c34e8af666691a0f569, type: 3}
   sprites:
   - {fileID: 21300000, guid: a6e06623b48d7d54db193e3907b016cf, type: 3}
   - {fileID: 21300000, guid: 553433ea8a5940443a8b7660000cc7f9, type: 3}

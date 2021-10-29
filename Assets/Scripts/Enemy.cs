@@ -11,18 +11,24 @@ public class Enemy : MonoBehaviour
     protected int health;
 
     private AIMovement ai;
+    private CameraShake cameraShake;
+    private bool destroyed = false;
 
     public int hits;
     public float knockbackResist = 1;
     public float heartDropChance = 0.3f;
+    public AudioClip hurtSound;
+    public AudioClip killSound;
     public GameObject heartPrefab;
     public GameObject killParticlePrefab;
     public GameObject hurtParticlePrefab;
+    public GameObject soundEffectPrefab;
 
     protected virtual void Start()
     {
         health = hits;
         ai = GetComponent<AIMovement>();
+        cameraShake = FindObjectOfType<CameraShake>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -53,7 +59,10 @@ public class Enemy : MonoBehaviour
 
 	private void Damage(int hearts, float knockback)
 	{
+        if (destroyed) return;
+
         health -= hearts;
+
         if (health <= 0)
 		{
             Player player = FindObjectOfType<Player>();
@@ -62,7 +71,10 @@ public class Enemy : MonoBehaviour
                 Instantiate(heartPrefab, transform.position, Quaternion.identity);
             }
             Instantiate(killParticlePrefab, transform.position, Quaternion.identity);
+            PlaySound(killSound);
+            cameraShake.Shake(0.75f);
             Destroy(gameObject);
+            destroyed = true;
         }
         else
 		{
@@ -73,6 +85,16 @@ public class Enemy : MonoBehaviour
                 ai.Knockback(knockback / knockbackResist);
             }
             Instantiate(hurtParticlePrefab, transform.position, Quaternion.identity);
+            PlaySound(hurtSound);
+            cameraShake.Shake(0.5f);
         }
 	}
+
+    private void PlaySound(AudioClip clip, float volume = 1)
+	{
+        AudioSource src = Instantiate(soundEffectPrefab, transform.position, Quaternion.identity).GetComponent<AudioSource>();
+        src.clip = clip;
+        src.volume = volume;
+        src.Play();
+    }
 }

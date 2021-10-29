@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     private const float hurtInvincibleTime = 1.0f;
     private const int maxHurtFlickerFrames = 5;
     private const float pitchVariation = 0.15f;
-    private const float attackDistance = 1.0f;
+    private const float attackDistance = 0.9f;
 
     private Rigidbody2D rb;
     private EdgeCollider2D ec;
@@ -52,9 +52,10 @@ public class Player : MonoBehaviour
     private bool hurtInvincible = false;
     private float hurtInvincibleTimer = 0;
     private int hurtFlickerFrames = 0;
-    private Transform checkpoint;
 
-    private CameraFollow cameraScript;
+    private bool finishedLevel = false;
+
+    private CameraShake cameraShake;
     private Persistent persistent;
 
     private int maxHearts = 3;
@@ -101,7 +102,7 @@ public class Player : MonoBehaviour
         ec = gameObject.GetComponent<EdgeCollider2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         audioSource = gameObject.GetComponent<AudioSource>();
-        cameraScript = FindObjectOfType<CameraFollow>();
+        cameraShake = FindObjectOfType<CameraShake>();
 
         Persistent[] persistents = FindObjectsOfType<Persistent>();
         foreach (Persistent p in persistents)
@@ -279,7 +280,7 @@ public class Player : MonoBehaviour
             }
             yVel = 0;
 
-            animState = xVel == 0 ? AnimState.Stand : AnimState.Run;
+            SetAnimState(xVel == 0 ? AnimState.Stand : AnimState.Run);
         }
         else
         {
@@ -292,7 +293,7 @@ public class Player : MonoBehaviour
 
             if (yVel < 0)
             {
-                animState = AnimState.Fall;
+                SetAnimState(AnimState.Fall);
             }
         }
         wasOnGround = onGround;
@@ -317,7 +318,7 @@ public class Player : MonoBehaviour
                 xForce = 0;
                 yVel = jumpForce; //Mathf.Max(jumpForce, yVel + jumpForce);
                 PlaySound(jumpSound);
-                animState = AnimState.Jump;
+                SetAnimState(AnimState.Jump);
             }
             else if (canDoubleJump && !persistent.sacrificedDoubleJump)
             {
@@ -328,7 +329,7 @@ public class Player : MonoBehaviour
                 xForce = 0;
                 yVel = doubleJumpForce; //Mathf.Max(doubleJumpForce, yVel + doubleJumpForce);
                 PlaySound(doubleJumpSound);
-                animState = AnimState.DoubleJump;
+                SetAnimState(AnimState.DoubleJump);
             }
         }
 
@@ -343,7 +344,7 @@ public class Player : MonoBehaviour
                 xForce = currentDashForce;
                 yVel = 0;
                 PlaySound(dashSound);
-                animState = AnimState.Dash;
+                SetAnimState(AnimState.Dash);
             }
         }
 
@@ -390,6 +391,10 @@ public class Player : MonoBehaviour
 
     private void Attack()
 	{
+        if (spawnedAttack != null)
+		{
+            return;
+		}
         PlaySound(attackSound);
         //attack.SetActive(true);
         //attack.transform.localPosition = new Vector3(facingLeft ? -1 : 1, 0, 0);
@@ -397,12 +402,15 @@ public class Player : MonoBehaviour
         Vector3 attackPos = transform.position + (attackDistance * (facingLeft ? Vector3.left : Vector3.right));
         spawnedAttack = Instantiate(attackPrefab, attackPos, Quaternion.identity);
         spawnedAttack.transform.localScale = new Vector3(facingLeft ? -1 : 1, 1, 1);
-        spawnedAttack.GetComponent<Attack>().Activate(persistent.NumSacrifices());
+        Attack spawnedAttackScript = spawnedAttack.GetComponent<Attack>();
+        spawnedAttackScript.Activate(persistent.NumSacrifices());
+        SetAnimState(AnimState.Attack);
+        frameTimer = spawnedAttackScript.decayTime;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!gameObject.activeSelf) return;
+        if (!gameObject.activeSelf || finishedLevel) return;
 
         GameObject collider = collision.collider.gameObject;
 
@@ -410,6 +418,7 @@ public class Player : MonoBehaviour
 		{
             persistent.gems += levelGems;
             levelGems = 0;
+            finishedLevel = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
@@ -419,9 +428,12 @@ public class Player : MonoBehaviour
             {
                 //against wall, not ceiling
                 //PlaySound(bonkSound);
+                if (xForce != 0)
+				{
+                    PlaySound(landSound);
+                }
                 xForce = 0;
                 dashCountdown = 0;
-                PlaySound(landSound);
             }
         }
     }
@@ -475,7 +487,7 @@ public class Player : MonoBehaviour
     private void Damage()
     {
         hearts--;
-        cameraScript.Shake();
+        cameraShake.Shake();
         Instantiate(hurtParticlePrefab, transform.position, Quaternion.identity);
         if (hearts <= 0)
         {
@@ -491,6 +503,7 @@ public class Player : MonoBehaviour
             hurtInvincible = true;
             hurtInvincibleTimer = 0;
             hurtFlickerFrames = 0;
+            PlaySound(hurtSound);
         }
     }
 
@@ -541,6 +554,14 @@ public class Player : MonoBehaviour
         canJump = false;
     }
 
+    private void SetAnimState(AnimState state)
+	{
+        if (animState != AnimState.Attack)
+		{
+            animState = state;
+		}
+    }
+
     private void AdvanceAnim()
     {
         if (animState == AnimState.Run)
@@ -551,7 +572,18 @@ public class Player : MonoBehaviour
         else
         {
             animFrame = 0;
-            frameTimer = frameTime;
+            if (animState == AnimState.Attack)
+            {
+                frameTimer -= Time.deltaTime;
+                if (frameTimer <= 0)
+                {
+                    animState = AnimState.Stand;
+                }
+            }
+            else
+			{
+                frameTimer = frameTime;
+            }
         }
     }
 

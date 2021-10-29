@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    private const float decayTime = 0.1f;
+    public float decayTime = 0.1f;
 
     private int[] HEARTS = new int[] { 1, 2, 4, 6 };
     private float[] KNOCKBACK = new float[] { 3, 6, 9, 12 };
