@@ -30,6 +30,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Level2A.unity
     guid: 3f6ca70c61166e44e897c977ab541024
   - enabled: 1
+    path: Assets/Scenes/Level2B.unity
+    guid: 8a7b5809a7e922a49a1e1bf62cfb0f82
+  - enabled: 1
+    path: Assets/Scenes/Level2C.unity
+    guid: ceafb8d1bc36125488619032c462c21c
+  - enabled: 1
+    path: Assets/Scenes/Level2D.unity
+    guid: fb74e08481249bb4993f839a5ee51e3f
+  - enabled: 1
     path: Assets/Scenes/Altar2.unity
     guid: e2fb5c55e1115f14f9a82128c217d009
   - enabled: 1
@@ -38,6 +47,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Altar4.unity
     guid: f8c1e26dadc4de248b207eaead2cf0b8
+  - enabled: 1
+    path: Assets/Scenes/Boss.unity
+    guid: ba2c9a26d074606479682ccb9c56aa7b
   - enabled: 1
     path: Assets/Scenes/BadEnd.unity
     guid: 36f2b268800cb6c40a344ed3cc1456d7

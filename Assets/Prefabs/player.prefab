@@ -166,7 +166,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e106a123c54df4845a830942ac90f429, type: 3}
   - {fileID: 8300000, guid: a1a8719fdc011414081dac7e9feedc6e, type: 3}
   - {fileID: 8300000, guid: c35a3c9a53f672744b8ee41945e12764, type: 3}
-  staminaFailSound: {fileID: 8300000, guid: 07f6dc0f886fd8f4191022e594d5d575, type: 3}
+  staminaFailSound: {fileID: 8300000, guid: 08f50d7051ae5b5489c86bf888829e9e, type: 3}
   hurtSound: {fileID: 8300000, guid: 4fd9896cd6d0ec848a3c0f45fff20694, type: 3}
   collectGemSound: {fileID: 8300000, guid: 544d062316cd55f4eac4156bbfa20203, type: 3}
   collectHeartSound: {fileID: 8300000, guid: cf245f8a03bcd034590a075cf4024cba, type: 3}
