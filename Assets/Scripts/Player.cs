@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     private const float maxFallSpeed = 20;
     private const float dashForce = 20;
     private const float dashTime = 0.25f;
-    private const float groundForceFriction = 0.9f;
+    private const float groundForceFriction = 1;
     private const float hurtInvincibleTime = 1.0f;
     private const int maxHurtFlickerFrames = 5;
     private const float pitchVariation = 0.15f;
@@ -54,12 +54,18 @@ public class Player : MonoBehaviour
     private int hurtFlickerFrames = 0;
 
     private bool finishedLevel = false;
+    private bool disabledAttack = false;
 
     private CameraShake cameraShake;
     private Persistent persistent;
 
     private int maxHearts = 3;
     private int hearts;
+
+    private float stamina = 1;
+    private const float staminaAttackCost = 0.5f;
+    private float[] staminaRechargeSpeeds = new float[] { 0.01f, 0.02f, 0.03f, 0.04f };
+    private bool staminaRecharging = false;
 
     private const float runFrameTime = 0.1f;
     private SpriteRenderer sr;
@@ -81,7 +87,8 @@ public class Player : MonoBehaviour
     public AudioClip doubleJumpSound;
     public AudioClip landSound;
     public AudioClip dashSound;
-    public AudioClip attackSound;
+    public AudioClip[] attackSounds;
+    public AudioClip staminaFailSound;
     public AudioClip hurtSound;
     public AudioClip collectGemSound;
     public AudioClip collectHeartSound;
@@ -92,6 +99,7 @@ public class Player : MonoBehaviour
     public GameObject collectParticlePrefab;
     public GameObject hurtParticlePrefab;
     public GameObject playerKilledPrefab;
+    public GameObject loadingScreenPrefab;
 
     [HideInInspector]
     public int levelGems = 0;
@@ -116,7 +124,7 @@ public class Player : MonoBehaviour
 
         if (persistent.sacrificedHearts)
 		{
-            maxHearts = 1;
+            maxHearts = 2;
 		}
         hearts = maxHearts;
     }
@@ -135,7 +143,7 @@ public class Player : MonoBehaviour
             dashQueued = true;
         }
 
-        if (Input.GetButtonDown("Attack") && FindObjectOfType<Dialog>() == null)
+        if (Input.GetButtonDown("Attack") && FindObjectOfType<Dialog>() == null && !disabledAttack)
         {
             attackQueued = true;
         }
@@ -387,6 +395,16 @@ public class Player : MonoBehaviour
             spawnedAttack.transform.position = attackPos;
             spawnedAttack.transform.localScale = new Vector3(facingLeft ? -1 : 1, 1, 1);
         }
+
+        if (stamina < 1)
+        {
+            stamina += staminaRechargeSpeeds[persistent.NumSacrifices()];
+            if (stamina >= 1)
+			{
+                stamina = 1;
+                staminaRecharging = false;
+            }
+        }
     }
 
     private void Attack()
@@ -395,7 +413,12 @@ public class Player : MonoBehaviour
 		{
             return;
 		}
-        PlaySound(attackSound);
+        if (staminaRecharging)
+		{
+            PlaySound(staminaFailSound);
+            return;
+		}
+        PlaySound(attackSounds[persistent.NumSacrifices()]);
         //attack.SetActive(true);
         //attack.transform.localPosition = new Vector3(facingLeft ? -1 : 1, 0, 0);
         //attack.transform.localScale = new Vector3(facingLeft ? -1 : 1, 1, 1);
@@ -406,6 +429,12 @@ public class Player : MonoBehaviour
         spawnedAttackScript.Activate(persistent.NumSacrifices());
         SetAnimState(AnimState.Attack);
         frameTimer = spawnedAttackScript.decayTime;
+        stamina -= staminaAttackCost;
+        if (stamina <= 0)
+		{
+            stamina = 0;
+            staminaRecharging = true;
+		}
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -419,6 +448,7 @@ public class Player : MonoBehaviour
             persistent.gems += levelGems;
             levelGems = 0;
             finishedLevel = true;
+            Instantiate(loadingScreenPrefab);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
@@ -623,5 +653,20 @@ public class Player : MonoBehaviour
     public int GetMaxHearts()
 	{
         return maxHearts;
+	}
+
+    public void DisableAttack()
+	{
+        disabledAttack = true;
+	}
+
+    public float GetStaminaPercent()
+	{
+        return stamina;
+	}
+
+    public bool GetStaminaRecharging()
+	{
+        return staminaRecharging;
 	}
 }

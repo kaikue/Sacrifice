@@ -14,6 +14,13 @@ public class HUD : MonoBehaviour
     public Image heart3;
     public Image gemImage;
     public TextMeshProUGUI gemText;
+    public GameObject staminaUI;
+    public RectTransform staminaBar;
+    public GameObject staminaRecharging;
+    private float staminaBarWidth;
+    private bool staminaLinger = false;
+    private const float staminaLingerTime = 0.5f;
+    private float staminaLingerTimer;
 
     private Persistent persistent;
     private Player player;
@@ -33,6 +40,8 @@ public class HUD : MonoBehaviour
         player = FindObjectOfType<Player>();
 
         RefreshHearts();
+        staminaBarWidth = staminaBar.sizeDelta.x;
+        staminaUI.SetActive(false);
     }
 
     private void Update()
@@ -53,6 +62,25 @@ public class HUD : MonoBehaviour
             gemText.gameObject.SetActive(true);
             gemText.text = gems.ToString();
         }
+
+        float stamina = player.GetStaminaPercent();
+
+        if (stamina == 1 && staminaUI.activeSelf && !staminaLinger)
+		{
+            staminaLinger = true;
+		}
+        if (staminaLinger)
+		{
+            staminaLingerTimer += Time.deltaTime;
+            if (staminaLingerTimer >= staminaLingerTime)
+			{
+                staminaLingerTimer = 0;
+                staminaLinger = false;
+			}
+		}
+        staminaUI.SetActive(stamina < 1 || staminaLinger);
+        staminaRecharging.SetActive(player.GetStaminaRecharging());
+        staminaBar.sizeDelta = new Vector2(staminaBarWidth * stamina, staminaBar.sizeDelta.y);
     }
 
     private Sprite GetHeartSprite(int heart)
@@ -65,7 +93,7 @@ public class HUD : MonoBehaviour
 	{
         if (persistent.sacrificedHearts)
         {
-            heart2.enabled = false;
+            //heart2.enabled = false;
             heart3.enabled = false;
         }
     }

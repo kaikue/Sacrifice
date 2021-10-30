@@ -88,4 +88,9 @@ public class Dialog : MonoBehaviour
         progressing = true;
         UpdateText();
     }
+
+    public void ActivateChoiceOrb()
+	{
+        FindObjectOfType<ChoiceOrbActivator>().Activate();
+	}
 }

@@ -6,9 +6,39 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: 4816c58aec8b72043980e54f6338e8cb
+  - enabled: 1
+    path: Assets/Scenes/Level1A.unity
+    guid: b21c9e3532312154ab6614e7ae7300c4
+  - enabled: 1
+    path: Assets/Scenes/Level1B.unity
+    guid: 90139037681085b47a2425db07521aee
+  - enabled: 1
+    path: Assets/Scenes/Level1C.unity
+    guid: f1008296180fca54184caa951e5ac869
+  - enabled: 1
+    path: Assets/Scenes/Level1D.unity
+    guid: 66646d0e1a6dff14d94ab6cdbc1ba173
+  - enabled: 1
+    path: Assets/Scenes/Level1E.unity
+    guid: dd89e56030f3a3d4e987310fcf4c2c9a
+  - enabled: 1
     path: Assets/Scenes/Altar1.unity
     guid: e1f56421734d21f4c9d94bfa86745e28
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Level2A.unity
+    guid: 3f6ca70c61166e44e897c977ab541024
+  - enabled: 1
+    path: Assets/Scenes/Altar2.unity
+    guid: e2fb5c55e1115f14f9a82128c217d009
+  - enabled: 1
+    path: Assets/Scenes/Altar3.unity
+    guid: f9faa9b19b5c47e45bfb100e529270da
+  - enabled: 1
+    path: Assets/Scenes/Altar4.unity
+    guid: f8c1e26dadc4de248b207eaead2cf0b8
+  - enabled: 1
+    path: Assets/Scenes/BadEnd.unity
+    guid: 36f2b268800cb6c40a344ed3cc1456d7
   m_configObjects: {}

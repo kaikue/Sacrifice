@@ -94,6 +94,6 @@ public class Persistent : MonoBehaviour
 
     public int GetTotalGems()
 	{
-        return gems + player.levelGems;
+        return gems + (player ? player.levelGems : 0);
 	}
 }

@@ -53,7 +53,7 @@ public class BadEndSequence : MonoBehaviour
         audioSource.PlayOneShot(tentacleBurstSound);
         cameraShake.Shake();
         yield return new WaitForSeconds(waitTimeEnd);
-        audioSource.PlayOneShot(tentacleBurstSound);
         endObj.SetActive(true);
+        audioSource.PlayOneShot(tentacleBurstSound);
     }
 }

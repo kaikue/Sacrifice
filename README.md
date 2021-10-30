@@ -4,8 +4,6 @@ For Spooktober Jam 2021: https://itch.io/jam/spooktober-jam-2021
 
 Choose to sacrifice abilities (dash, double jump, health) to gain attack power.
 
-Castle of Cth??????
-
 ## Credits
 
 - Art:
@@ -18,6 +16,7 @@ Castle of Cth??????
 	- Effects generated with sfxr: https://www.drpetter.se/project_sfxr.html
 	- Electric by D4XX: https://freesound.org/people/D4XX/sounds/567269/
 - Music:
+	- "Do Not Run" by Trevor Lentz: https://opengameart.org/content/do-not-run
 	- "Approaching the Tower" composed, mixed and mastered by Viktor Kraus: https://opengameart.org/content/approaching-the-tower
 	- "Dread Castle" composed by Scott Elliott: https://opengameart.org/content/dread-castle
 	- "Dark Reign" by Shype: https://opengameart.org/content/dark-reign-chiptune-stage-music
@@ -34,51 +33,58 @@ Castle of Cth??????
 
 ## TODO
 
-- Attack
-	- power & knockback depends on sacrifices
-		- test
-	- screen shake more when hitting enemy at higher levels?
-	- different sounds for higher level attacks?
-	- bigger AoE at higher levels?
-- Sound
-	- Music
-		- Title
-		- Endings?
 - Level design
-	- Multiple scenes per level to act as checkpoints
+	- 2
+		- lower ceilings
+		- imps & skeletons
+		- imps on platforms above so they fall behind you
+		- flying eyes
+		- 4 flying eyes room
+		- False wall hiding gems
+		- Optional dash over spikes
+		- Required double jumps
+			- fall down then jump up
+		- Introduce demon as miniboss
+		- a few eyes/tentacles decorations
+	- 3
+		- demons & imps & flying eyes & skeletons
+		- maze room
+		- False wall hiding gems
+		- Optional dash over spikes
+		- Optional double jump (no required!)
+		- more eyes/tentacles decorations
+	- 4
+		- lots of demons
+		- 4a: shambler fight
+		- lots of eyes/tentacles decorations
 	- Short ceilings so you can't jump over enemies
 	- Attackable walls take multiple hits- can't just run past enemies since they'll get you from behind
-	- Dash over spikes
-	- 4 flying eyes room
-	- Introduce demon as miniboss first
 	- Opportunities to use saved abilities to skip enemy fights
-	- Decorations- occasional eyes & tentacles
-- Altar
-	- show button prompt in dialog corner
-	- write dialog for rooms 2, 3, 4
-		- dependent on choices
-- Tutorial
-	- controls for keyboard/gamepad
 - Boss fight
+	- dialog intro
 	- have to attack tentacles
 	- spawn waves of enemies
+	- no abilities sacrificed- climb up through spikes and banish him- good ending
+	- some abilities sacrificed- fight him- banish him but you die (ok ending)
 - Endings
 	- stop music (fade?)
-	- restart button
+	- ending music?
 	- bad
-		- fade to white in altar
+		- fade to white in altar, then load bad end scene
 	- ok
 		- castle destroyed?
 	- good
 		- ?
+- Title- name of eldritch guy
+- Attack
+	- power, knockback, sound depends on sacrifices- test
+	- screen shake more when hitting enemy at higher levels?
+	- bigger AoE at higher levels? (different art)
 - Enemies
-	- faster+tougher flying eye?
 	- one that shoots towards player?
-	- big shambler? (can't jump over)
 - Levels
 	- Title
-		- castle
-		- music: 
+		- music: do not run
 	- Level 1: all abilities, minor combat
 		- music: Approaching the Tower
 	- Altar 1: choice to sacrifice dash
@@ -88,13 +94,10 @@ Castle of Cth??????
 	- Altar 2: choice to sacrifice double jump
 	- Level 3: dash or no, double jump or no, lots of combat
 		- music: Juhani Junkala
-	- Altar 3: choice to sacrifice hearts "vitality"
-		- reload hearts GUI (test)
-	- Level 4: dash or no, double jump or no, cross spikes (requires health), lots of combat
+	- Altar 3: choice to sacrifice hearts
+	- Level 4: dash or no, double jump or no, lots of combat
 		- music: inarticulate
 	- Altar 5: sacrifice everything for ultimate power
 		- yes- bad ending
 		- no- fight eldritch guy
 			- music: demon lord
-			- no abilities sacrificed- climb up through spikes and banish him- good ending
-			- some abilities sacrificed- fight him- banish him but you die (ok ending)
