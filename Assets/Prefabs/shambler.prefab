@@ -55,7 +55,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1450770853696651673, guid: 1243c57c957d4ef438a2923c5a46ff40, type: 3}
       propertyPath: hits
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1450770853696651673, guid: 1243c57c957d4ef438a2923c5a46ff40, type: 3}
       propertyPath: heartDropChance

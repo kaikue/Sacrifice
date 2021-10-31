@@ -72,9 +72,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -669853871
+  m_SortingLayer: 4
+  m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: a6e06623b48d7d54db193e3907b016cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -133,6 +133,9 @@ MonoBehaviour:
   killParticlePrefab: {fileID: 2245083368674552170, guid: 3330fd90ebe068d4cbd26b8521a1f276, type: 3}
   hurtParticlePrefab: {fileID: 6732967993637338557, guid: 9372fe311087ba24393b0a777de59424, type: 3}
   soundEffectPrefab: {fileID: 5301649110270854516, guid: a597f4d660ad6c34e8af666691a0f569, type: 3}
+  killEvent:
+    m_PersistentCalls:
+      m_Calls: []
   sprites:
   - {fileID: 21300000, guid: a6e06623b48d7d54db193e3907b016cf, type: 3}
   - {fileID: 21300000, guid: 553433ea8a5940443a8b7660000cc7f9, type: 3}

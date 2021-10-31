@@ -356,7 +356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &205172827
 RectTransform:
   m_ObjectHideFlags: 0
@@ -517,6 +517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castleDestroyed1: {fileID: 21300000, guid: c58f6d5a930c28d4484d4847a80a6b3a, type: 3}
   castleDestroyed2: {fileID: 21300000, guid: 00f6e05fd7b2d18408ff6c22270d8d2a, type: 3}
+  castleDestroyed2Eye: {fileID: 21300000, guid: adc9e97a49c9f2e419632b40d46c7481, type: 3}
   tentacleBurstSound: {fileID: 8300000, guid: bdfe33ef0c497514bbbb634248b6e39e, type: 3}
   tentaclePrefab: {fileID: 8712855309175753483, guid: 3b12e46db45ba6c4bbe9d2ace4e012ec, type: 3}
   tentaclePoint1: {fileID: 827668175}
@@ -769,6 +770,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &948417399
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4088974589344376917, guid: 524f4c81c513d5446851522ab3516893, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088974589344376917, guid: 524f4c81c513d5446851522ab3516893, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088974589344376917, guid: 524f4c81c513d5446851522ab3516893, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088974589344376917, guid: 524f4c81c513d5446851522ab3516893, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088974589344376917, guid: 524f4c81c513d5446851522ab3516893, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088974589344376917, guid: 524f4c81c513d5446851522ab3516893, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088974589344376917, guid: 524f4c81c513d5446851522ab3516893, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088974589344376917, guid: 524f4c81c513d5446851522ab3516893, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088974589344376917, guid: 524f4c81c513d5446851522ab3516893, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088974589344376917, guid: 524f4c81c513d5446851522ab3516893, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088974589344376917, guid: 524f4c81c513d5446851522ab3516893, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771687721103811868, guid: 524f4c81c513d5446851522ab3516893, type: 3}
+      propertyPath: m_Name
+      value: Persistent
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 524f4c81c513d5446851522ab3516893, type: 3}
 --- !u!1 &1008002125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,7 +1708,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 90}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &179547541469933082
@@ -1673,7 +1731,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Over
+  m_text: The End
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 16cb65fc13d98744aaa0b50036f3b064, type: 2}
   m_sharedMaterial: {fileID: -9101810579552981796, guid: 16cb65fc13d98744aaa0b50036f3b064, type: 2}

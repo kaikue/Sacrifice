@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
     public GameObject killParticlePrefab;
     public GameObject hurtParticlePrefab;
     public GameObject soundEffectPrefab;
+    public UnityEvent killEvent;
 
     protected virtual void Start()
     {
@@ -73,6 +75,7 @@ public class Enemy : MonoBehaviour
             Instantiate(killParticlePrefab, transform.position, Quaternion.identity);
             PlaySound(killSound);
             cameraShake.Shake(0.75f);
+            killEvent.Invoke();
             Destroy(gameObject);
             destroyed = true;
         }

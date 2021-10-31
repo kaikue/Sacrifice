@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
 
     private bool finishedLevel = false;
     private bool disabledAttack = false;
+    private bool invincible = false;
 
     private CameraShake cameraShake;
     private Persistent persistent;
@@ -507,7 +508,7 @@ public class Player : MonoBehaviour
 
         if (collider.CompareTag("Damage"))
         {
-            if (!hurtInvincible)
+            if (!hurtInvincible && !invincible)
             {
                 Damage();
             }
@@ -668,5 +669,10 @@ public class Player : MonoBehaviour
     public bool GetStaminaRecharging()
 	{
         return staminaRecharging;
+	}
+
+    public void SetInvincible()
+	{
+        invincible = true;
 	}
 }

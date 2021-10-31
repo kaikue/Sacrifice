@@ -42,15 +42,48 @@ EditorBuildSettings:
     path: Assets/Scenes/Altar2.unity
     guid: e2fb5c55e1115f14f9a82128c217d009
   - enabled: 1
+    path: Assets/Scenes/Level3A.unity
+    guid: 861fdbf1413ff364fae16a8720226023
+  - enabled: 1
+    path: Assets/Scenes/Level3B.unity
+    guid: 04765dc1af387db4190c8394d6309954
+  - enabled: 1
+    path: Assets/Scenes/Level3C.unity
+    guid: 6e73c0d131447c04f9550e90937dc260
+  - enabled: 1
+    path: Assets/Scenes/Level3D.unity
+    guid: dd19e76532d760b48b53dfd9e31194e3
+  - enabled: 1
     path: Assets/Scenes/Altar3.unity
     guid: f9faa9b19b5c47e45bfb100e529270da
   - enabled: 1
+    path: Assets/Scenes/Level4A.unity
+    guid: 9fd6f72f10d64de4988efde40faced62
+  - enabled: 1
+    path: Assets/Scenes/Level4B.unity
+    guid: 9c97f617bf1134549b85ba7bb3763ae4
+  - enabled: 1
+    path: Assets/Scenes/Level4C.unity
+    guid: fef590b4c81fc0249b5b3c0cecb5e23c
+  - enabled: 1
+    path: Assets/Scenes/Level4D.unity
+    guid: feeca34c1284eec4fa940f8ed2ecd22d
+  - enabled: 1
     path: Assets/Scenes/Altar4.unity
     guid: f8c1e26dadc4de248b207eaead2cf0b8
+  - enabled: 1
+    path: Assets/Scenes/BossIntro.unity
+    guid: 89307104aa1cffb47a59cca8301d7744
   - enabled: 1
     path: Assets/Scenes/Boss.unity
     guid: ba2c9a26d074606479682ccb9c56aa7b
   - enabled: 1
     path: Assets/Scenes/BadEnd.unity
     guid: 36f2b268800cb6c40a344ed3cc1456d7
+  - enabled: 1
+    path: Assets/Scenes/OkEnd.unity
+    guid: dbdf1871653ce1f4fb5d7ec80b847893
+  - enabled: 1
+    path: Assets/Scenes/GoodEnd.unity
+    guid: 63ecc0d5d0d80ef4996dab677f8ad8f5
   m_configObjects: {}

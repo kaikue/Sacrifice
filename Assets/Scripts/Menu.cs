@@ -19,6 +19,12 @@ public class Menu : MonoBehaviour
 
 	public void LoadStart()
     {
+        Persistent p = FindObjectOfType<Persistent>();
+        if (p != null)
+        {
+            SceneManager.sceneLoaded -= p.OnSceneLoaded;
+            Destroy(p.gameObject);
+        }
         SceneManager.LoadScene(0);
     }
 

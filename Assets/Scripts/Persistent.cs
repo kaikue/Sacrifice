@@ -36,10 +36,14 @@ public class Persistent : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
-        audioSource = GetComponent<AudioSource>();
+
+        if (!destroying)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
 
-	private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+	public void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
         int levelGems = FindObjectsOfType<Gem>().Length;
         player = FindObjectOfType<Player>();

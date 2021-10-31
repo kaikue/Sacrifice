@@ -1115,7 +1115,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Castle of Nar-Tothoth
+  m_text: Castle of Nar-Sogoth
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 16cb65fc13d98744aaa0b50036f3b064, type: 2}
   m_sharedMaterial: {fileID: -9101810579552981796, guid: 16cb65fc13d98744aaa0b50036f3b064, type: 2}

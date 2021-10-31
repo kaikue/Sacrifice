@@ -74,7 +74,7 @@ public class AIMovement : MonoBehaviour
         wallRight = CheckSide(2, 3, new Vector2(1, 3));
 
         float dist = Vector2.Distance(player.transform.position, rb.position);
-        Vector2 vel = Vector2.zero;
+        //Vector2 vel = Vector2.zero;
         if (knockback > 0)
 		{
             if (onGround)
@@ -90,10 +90,10 @@ public class AIMovement : MonoBehaviour
                 knockback = 0;
 			}
 
-            if ((wallLeft && knockbackLeft) || (wallRight && !knockbackLeft))
+            /*if (!flying && ((wallLeft && knockbackLeft) || (wallRight && !knockbackLeft)))
 			{
                 knockback = 0;
-			}
+			}*/
 
             float knockbackX = knockback * (knockbackLeft ? -1 : 1);
             float knockbackY;
@@ -105,7 +105,7 @@ public class AIMovement : MonoBehaviour
 			{
                 knockbackY = rb.velocity.y;
 			}
-            vel = new Vector2(knockbackX, knockbackY);
+            rb.velocity = new Vector2(knockbackX, knockbackY);
         }
         else
 		{
@@ -113,10 +113,13 @@ public class AIMovement : MonoBehaviour
             {
                 UpdateDirection();
                 sr.flipX = facingLeft;
-                vel = GetVelocity();
+                rb.velocity = GetVelocity();
             }
+            else
+			{
+                rb.velocity = new Vector2(0, rb.velocity.y);
+			}
         }
-        rb.velocity = vel;
     }
 
     public void Knockback(float force)

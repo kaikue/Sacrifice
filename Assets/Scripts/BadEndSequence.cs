@@ -12,6 +12,7 @@ public class BadEndSequence : MonoBehaviour
 
     public Sprite castleDestroyed1;
     public Sprite castleDestroyed2;
+    public Sprite castleDestroyed2Eye;
     public AudioClip tentacleBurstSound;
     public GameObject tentaclePrefab;
     public Transform tentaclePoint1;
@@ -50,6 +51,10 @@ public class BadEndSequence : MonoBehaviour
         cameraShake.Shake();
         yield return new WaitForSeconds(waitTime3);
         Instantiate(tentaclePrefab, tentaclePoint4);
+        audioSource.PlayOneShot(tentacleBurstSound);
+        cameraShake.Shake();
+        yield return new WaitForSeconds(waitTime3);
+        sr.sprite = castleDestroyed2Eye;
         audioSource.PlayOneShot(tentacleBurstSound);
         cameraShake.Shake();
         yield return new WaitForSeconds(waitTimeEnd);

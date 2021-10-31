@@ -10,6 +10,7 @@ public class FinalChoiceEffectsCreator : MonoBehaviour
     private void Start()
     {
         fce = Instantiate(fcePrefab, Vector3.zero, Quaternion.identity).GetComponent<FinalChoiceEffects>();
+        FindObjectOfType<Player>().DisableAttack();
     }
 
     public void Rumble()
@@ -19,6 +20,6 @@ public class FinalChoiceEffectsCreator : MonoBehaviour
 
     public void Fade()
 	{
-        fce.FadeToWhite();
+        fce.FadeToWhite("BadEnd");
 	}
 }

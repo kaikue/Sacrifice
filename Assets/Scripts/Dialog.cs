@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Dialog : MonoBehaviour
 {
@@ -93,4 +94,9 @@ public class Dialog : MonoBehaviour
 	{
         FindObjectOfType<ChoiceOrbActivator>().Activate();
 	}
+
+    public void NextScene()
+	{
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }

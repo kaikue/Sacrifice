@@ -11,21 +11,23 @@ public class FinalChoiceEffects : MonoBehaviour
     private const float fadeTime = 3.0f;
     private const float holdWhiteTime = 2.0f;
     public Image fader;
+    private float rumbleTimer = 0;
 
     private void Start()
     {
         cameraShake = FindObjectOfType<CameraShake>();
-        FindObjectOfType<Player>().DisableAttack();
     }
 
-    public void StartRumbling()
+    public void StartRumbling(float rumbleTimer = 0)
 	{
+        this.rumbleTimer = rumbleTimer;
         StartCoroutine(Rumble());
 	}
 
-    public void FadeToWhite()
+    public void FadeToWhite(string endScene)
 	{
-        StartCoroutine(Fade());
+        FindObjectOfType<Player>().SetInvincible();
+        StartCoroutine(Fade(endScene));
 	}
 
     private IEnumerator Rumble()
@@ -34,10 +36,19 @@ public class FinalChoiceEffects : MonoBehaviour
         {
             cameraShake.Shake();
             yield return new WaitForSeconds(rumbleTime);
+            if (rumbleTimer > 0)
+			{
+                rumbleTimer -= rumbleTime;
+                if (rumbleTimer <= 0)
+				{
+                    rumbleTimer = 0;
+                    break;
+				}
+			}
         }
     }
 
-    private IEnumerator Fade()
+    private IEnumerator Fade(string endScene)
 	{
         for (float t = 0; t < fadeTime; t += Time.deltaTime)
 		{
@@ -45,6 +56,6 @@ public class FinalChoiceEffects : MonoBehaviour
             yield return null;
 		}
         yield return new WaitForSeconds(holdWhiteTime);
-        SceneManager.LoadScene("BadEnd");
+        SceneManager.LoadScene(endScene);
     }
 }
