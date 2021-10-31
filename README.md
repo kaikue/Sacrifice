@@ -33,11 +33,11 @@ Choose to sacrifice abilities (dash, double jump, health) to gain attack power.
 
 ## TODO
 
+- tweet, post in spooktober discord, agbic discord
+- check youtubers?
+- lower volume?
+- damage visible on big guys?
 - Attack
 	- bigger AoE at higher levels?
 	- screen shake more when hitting enemy at higher levels?
-- Playtest (all routes)
-- Build
-- Itch.io page
-	- screenshots, cover photo 630x500
-- Windows build
+- Windows build?

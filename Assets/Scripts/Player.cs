@@ -449,7 +449,7 @@ public class Player : MonoBehaviour
             persistent.gems += levelGems;
             levelGems = 0;
             finishedLevel = true;
-            Instantiate(loadingScreenPrefab);
+            //Instantiate(loadingScreenPrefab);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
@@ -633,7 +633,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void PlaySound(AudioClip sound, bool randomizePitch = true)
+    public void PlaySound(AudioClip sound, bool randomizePitch = false)
     {
         if (randomizePitch)
         {

@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[0].text
@@ -81,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 16cb65fc13d98744aaa0b50036f3b064, type: 2}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[3].text
-      value: Jump into the orb for greater strength...
+      value: Something of yours for something of mine.
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[4].font
@@ -89,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 16cb65fc13d98744aaa0b50036f3b064, type: 2}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[4].text
-      value: Or reject my generosity.
+      value: Jump into the orb for greater strength...
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[5].font
@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 16cb65fc13d98744aaa0b50036f3b064, type: 2}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[5].text
-      value: For only a small cost, I can make you stronger.
+      value: Or reject my generosity.
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[6].font
@@ -173,11 +173,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[3].lineEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[4].lineEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[5].lineEvent.m_PersistentCalls.m_Calls.Array.size
@@ -210,7 +210,7 @@ PrefabInstance:
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[4].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1970772796580567633}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[5].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -233,7 +233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[4].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Activate
+      value: ActivateChoiceOrb
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[5].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -249,7 +249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[4].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ChoiceOrbActivator, Assembly-CSharp
+      value: Dialog, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474459, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: dialogLines.Array.data[5].lineEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -281,7 +281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6872278571977474460, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: m_Name
-      value: DblJmpIntroNoSacrifices
+      value: DblJmpNoSacrifices
       objectReference: {fileID: 0}
     - target: {fileID: 6872278572841427612, guid: 8a9bc5204a7e6a241ae432820533a96f, type: 3}
       propertyPath: m_Camera
